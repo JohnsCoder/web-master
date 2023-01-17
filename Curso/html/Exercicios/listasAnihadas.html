@@ -1,0 +1,96 @@
+<h1>Projeto</h1>
+
+<ul class="tree">
+  <li>
+    <span wm-folder>back-end</span>
+    <ul>
+      <li>
+        <span wm-folder>app</span>
+        <ul>
+          <li>produto.js</li>
+          <li>usuario.js</li>
+          <li>venda.js</li>
+        </ul>
+      </li>
+      <li>
+        <span wm-folder>config</span>
+        <ul>
+          <li>banco.js</li>
+          <li>rotas.js</li>
+          <li>servidor.js</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span wm-folder>front-end</span>
+    <ul>
+      <li>
+        <span wm-folder>public</span>
+        <ul>
+          <li>app.css</li>
+          <li>app.js</li>
+          <li>index.html</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css" />
+
+<script>
+
+  test = document.querySelectorAll('[wm-folder]')
+  console.log(test)
+  test.forEach(folder => {
+       folder.onclick = function(e) {
+            const ul = folder.nextElementSibling
+            const d = ul.style.display
+           ul.style.display = d === 'none' ? 'block' : 'none'
+       }
+  })
+
+//   parent0 = document.getElementById("tree-parent0");
+//   parent1 = document.getElementById("tree-parent1");
+//   parent2 = document.getElementById("tree-parent2");
+//   parent3 = document.getElementById("tree-parent3");
+//   parent4 = document.getElementById("tree-parent4");
+//   console.log(parent0);
+
+//   allParent = document.querySelectorAll("[tree-parent] > *");
+//   console.log(allParent);
+//   allParent[(0, 1, 2, 3, 4)].style.visibility = "visible";
+
+//   parent0.onclick = function (e) {
+//     e.preventDefault();
+//     allParent[0].style.visibility == "visible"
+//       ? (allParent[0].style.visibility = "hidden")
+//       : (allParent[0].style.visibility = "visible");
+//   };
+//   parent1.onclick = function (e) {
+//     e.preventDefault();
+//     allParent[1].style.visibility == "visible"
+//       ? (allParent[1].style.visibility = "hidden")
+//       : (allParent[1].style.visibility = "visible");
+//   };
+//   parent2.onclick = function (e) {
+//     e.preventDefault();
+//     allParent[2].style.visibility == "visible"
+//       ? (allParent[2].style.visibility = "hidden")
+//       : (allParent[2].style.visibility = "visible");
+//   };
+//   parent3.onclick = function (e) {
+//     e.preventDefault();
+//     allParent[3].style.visibility == "visible"
+//       ? (allParent[3].style.visibility = "hidden")
+//       : (allParent[3].style.visibility = "visible");
+//   };
+//   parent4.onclick = function (e) {
+//     e.preventDefault();
+//     allParent[4].style.visibility == "visible"
+//       ? (allParent[4].style.visibility = "hidden")
+//       : (allParent[4].style.visibility = "visible");
+//   };
+
+</script>

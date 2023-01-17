@@ -1,0 +1,6 @@
+cls - limpa terminal
+show dbs - mostra banco de dados presentes
+use <nome do banco de dados> - traca para banco especificado
+db.createCollection('<nome da coleção>') - cria coleção
+show collections - mostra colleções dentro do dbs
+db.<nome da coleção>.drop() - exclui coleção especificada

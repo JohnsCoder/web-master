@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Desafio Menu</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald"
+      rel="stylesheet"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Oswald";
+        background: #f4f4ed;
+      }
+      .cabecalho {
+        box-sizing: content-box;
+        justify-content: space-between;
+        height: 80px;
+        background-color: #8093f1;
+        border-bottom: solid 5px #b388eb;
+      }
+
+      .logo {
+        display: inline-block;
+        height: inherit;
+        padding: 15px;
+      }
+
+      .logo img {
+        height: 100%;
+      }
+      .autenticacao {
+        float: right;
+        height: inherit;
+        padding: 25px;
+        translate: 0;
+
+      }
+
+      .autenticacao a {
+        text-decoration: none;
+        color: #f7aef8;
+      }
+
+      @media (min-width: 788px) {
+        .menu-toggle {
+          display: none;
+        }
+
+        .menu {
+          display: inline-block;
+          height: inherit;
+          padding: 25px;
+          vertical-align: top;
+          translate: 0
+        }
+
+        .menu li {
+          display: inline-block;
+          list-style: none;
+          transition: all 0.2s;
+        }
+
+        .menu a {
+          text-decoration: none;
+          color: #72ddf7;
+          font-size: 1.5em;
+          padding: 20px;
+        }
+
+        .menu li:hover {
+          background-color: #f7aef8;
+          padding: 5px;
+        }
+        .cabecalho {
+          overflow: hidden;
+        }
+      }
+
+      @media (max-width: 788px) {
+        .logo {
+          float: left;
+        }
+        .menu-toggle {
+          float: right;
+          height: 40px;
+          width: 35px;
+          margin: 20px;
+
+          background-color: #b388eb;
+          color: #f4f4ed;
+
+          border-radius: 5px;
+          border: none;
+          font-size: 15px;
+          transition: all 0.2s;
+        }
+        .menu-toggle:hover {
+          background-color: rgb(183, 143, 236);
+        }
+
+        .menu-toggle:active {
+          background-color: #72ddf7;
+        }
+
+        .menu {
+          width: 150px;
+          float: left;
+          padding-top: 25px;
+          translate: -100%;
+
+          background-color: #b388eb;
+          transition: all 0.5s;
+          clear: left;
+        }
+
+        .menu ul {
+          justify-content: center;
+          text-align: center;
+          align-items: center;
+        }
+
+        .cabecalho a {
+          text-decoration: none;
+          color: #72ddf7;
+        }
+
+        .menu li {
+          list-style: none;
+          padding: 5px;
+          font-size: 2em;
+          transition: all 0.5s;
+        }
+        .menu li:hover,
+        .autenticacao a:hover {
+          padding: 10px;
+        }
+        .autenticacao {
+          float: left;
+          width: 150px;
+          height: calc(100vh - (84px + 253px));
+          translate: -100%;
+
+          text-align: center;
+          clear: left;
+
+          background-color: #b388eb;
+          transition: all 0.5s;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="cabecalho">
+      <div class="logo">
+        <a href="#inicio">
+          <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+        </a>
+      </div>
+      <button class="menu-toggle">
+        <i class="fa fa-lg fa-bars"></i>
+      </button>
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="#inicio">Início</a>
+          </li>
+          <li>
+            <a href="#cursos">Cursos</a>
+          </li>
+          <li>
+            <a href="#sobre">Sobre</a>
+          </li>
+          <li>
+            <a href="#contato">Contato</a>
+          </li>
+        </ul>
+      </nav>
+      <aside class="autenticacao">
+        <a href="#login">Login</a>
+        <!-- <hr /> -->
+        <a href="#registar" class="botao destaque">Registrar</a>
+      </aside>
+    </header>
+
+    <script>
+      const menu = document.getElementsByClassName("menu")[0];
+      const autenticacao = document.getElementsByClassName("autenticacao")[0];
+
+      function handleMenu () {
+        menu.style.translate === "0px"
+          ? (menu.style.translate = "-150px")
+          : (menu.style.translate = "0px");
+
+        autenticacao.style.translate === "0px"
+          ? (autenticacao.style.translate = "-150px")
+          : (autenticacao.style.translate = "0px");
+      }
+      document.querySelector("button").onclick = () => handleMenu()
+
+      const listas = document.querySelectorAll("li");
+
+      function changeColor() {
+        listas.forEach((e) => {
+          if (
+            window.location.href.match(/#(\S+)/) !== null &&
+            e.children[0].getAttribute("href") ===
+              window.location.href.match(/#(\S+)/)[0]
+          ) {
+            e.style.background = "#f7aef8";
+          } else if (window.location.href.match(/#(\S+)/) === null) {
+            listas[0].style.background = "#f7aef8";
+          } else e.style.background = "none";
+        });
+      }
+      changeColor();
+
+      document.getElementsByClassName("logo")[0].onclick = () =>
+        setTimeout(changeColor, 0);
+
+      listas.forEach(
+        (e) =>
+          (e.onclick = () => {
+            setTimeout(changeColor, 0)
+            // setTimeout(handleMenu, 250)
+          })
+      );
+    </script>
+  </body>
+</html>

@@ -1,9 +1,9 @@
 /Material
-/aulas/ajax
-/aulas/bootstrap
-/aulas/css
-/aulas/dom
-/aulas/gulp
-/aulas/html
-/aulas/nextJs
-/aulas/react
+/nextJs
+*/node_modules
+*/*/node_modules
+*/*/*/node_modules
+*/.vscode
+
+/curso/dom/flappyBird
+/curso/react
